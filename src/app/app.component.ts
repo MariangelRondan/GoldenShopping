@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'animal-paintings';
+  title = 'golden-shopping';
+
+  reload() {
+    window.location.reload()
+  }
+
+
+
 }
