@@ -1,0 +1,23 @@
+
+<div class="container">
+    <h2>Products</h2>
+    <div fxLayout="row gap" fxLayoutGap="50px grid">
+        <ng-container *ngFor="let product of products; let i = index">
+            <div *ngIf="i > 0 && i< 25">
+                <mat-card class="product-card">
+                    <img mat-card-image [src]="product.images[0]" alt="Photo of a Shiba Inu">
+                    <mat-card-content>
+                        <mat-card-title>{{product.title}}</mat-card-title>
+                        <mat-card-subtitle>{{product.category.name}}</mat-card-subtitle>
+                        <p>{{product.price | currency:'USD'}}</p>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </ng-container>
+    </div>
+    
+</div>
+
+
+
+  
