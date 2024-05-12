@@ -2,17 +2,20 @@
     <h1>Cart</h1>
     <mat-card>
         <mat-list>
-<mat-list-item *ngFor="let item of cartItems">
-<span matListItemTitle>{{item.title}}</span>
-<span matListItemTitle>{{item.price | currency: 'USD'}}</span>
-<button (click)="(deleteCartItem(item.id))">Delete</button>
+<mat-list-item style="height: fit-content;" *ngFor="let item of cartItems">
+    <span style="font-weight: 600;" matListItemTitle>{{item.title}}</span>
+    <span class="text-right" matListItemTitle>{{item.price | currency: 'USD'}}</span>
+    <img  style="width: 100px; border-radius: 30px; height: 100px; " [src]="item.images[0]" alt="">
+<div class="text-right">
+
+    <button  (click)="(deleteCartItem(item.id))">Delete</button>
+</div>
 
 </mat-list-item>
 
 <mat-list-item  >
     <h2 class="price" matListItemTitle>Total:</h2>
-    <span matListItemTitle>{{totalPrice | currency: 'USD'}}</span>
-    <button>Delete</button>
+    <span  matListItemTitle>{{totalPrice | currency: 'USD'}}</span>
     
     </mat-list-item>
 

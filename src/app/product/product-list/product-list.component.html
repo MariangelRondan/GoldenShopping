@@ -1,11 +1,23 @@
 
 <div class="container">
     <h2>Products</h2>
+    <mat-form-field>
+        <input type="text" matInput (keyup)="applyFilter($event)" placeholder="Search...">
+    </mat-form-field>
+    
+    <mat-form-field class="sort-dropdown">
+        <mat-select (selectionChange)="sortProducts($event.value)" placeholder="Sort">
+            <mat-option value="priceLowHigh">Price: Low to High</mat-option>
+            <mat-option value="priceHighLow">Price: High to Low </mat-option>
+
+        </mat-select>
+    </mat-form-field>
+
     <div fxLayout="row gap" fxLayoutGap="50px grid">
-        <ng-container *ngFor="let product of products; let i = index">
-            <div *ngIf="i > 0 && i< 25">
+        <div class="container" *ngFor="let product of filteredProducts">
+           
                 <mat-card class="product-card">
-                    <button (click)="addToCart(product)">Add to Cart</button>
+                    <button (click)="addToCart(product)" class="buy-btn">Add to Cart</button>
                     <img mat-card-image [src]="product.images[0]" alt="Photo of a Shiba Inu">
                     <mat-card-content>
                         <mat-card-title>{{product.title}}</mat-card-title>
@@ -14,8 +26,8 @@
 
                     </mat-card-content>
                 </mat-card>
-            </div>
-        </ng-container>
+           
+        </div>
     </div>
     
 </div>
